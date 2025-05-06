@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Самооцінка Характеру</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <nav>
+    <ul>
+      <li><a href="#intro">Про самооцінку</a></li>
+      <li><a href="#types">Типи</a></li>
+      <li><a href="#improve">Покращення</a></li>
+      <li><a href="#test">Тест</a></li>
+    </ul>
+  </nav>
+
+  <header>
+    <h1>Самооцінка Характеру</h1>
+    <p>Зрозумій себе краще – дізнайся, яка в тебе самооцінка</p>
+  </header>
+
+  <main>
+    <section id="intro">
+      <h2>Що таке самооцінка?</h2>
+      <p>Самооцінка — це суб'єктивне уявлення людини про власну цінність. Вона впливає на всі сфери життя: навчання, спілкування, рішучість і успіх.</p>
+    </section>
+
+    <section id="types">
+      <h2>Типи самооцінки</h2>
+      <ul>
+        <li><strong>Низька:</strong> людина боїться помилок, сором'язлива, не вірить у себе.</li>
+        <li><strong>Адекватна:</strong> людина знає свої переваги і недоліки та вміє їх приймати.</li>
+        <li><strong>Завищена:</strong> людина не визнає помилок, вважає себе кращою за інших.</li>
+      </ul>
+    </section>
+
+    <section id="improve">
+      <h2>Як покращити самооцінку?</h2>
+      <p>Корисні поради для зміцнення впевненості:</p>
+      <ol>
+        <li>Розвивай самопізнання: веди щоденник думок і почуттів.</li>
+        <li>Став перед собою досяжні цілі.</li>
+        <li>Спілкуйся з позитивними людьми.</li>
+        <li>Навчайся на помилках – не бійся їх.</li>
+        <li>Регулярно хвали себе за успіхи, навіть маленькі.</li>
+      </ol>
+    </section>
+
+    <section id="test">
+      <h2>Тест: Оціни свою самооцінку</h2>
+      <form id="selfEsteemTest">
+        <p>1. Я легко починаю знайомства з новими людьми.</p>
+        <label><input type="radio" name="q1" value="2"> Так</label>
+        <label><input type="radio" name="q1" value="1"> Частково</label>
+        <label><input type="radio" name="q1" value="0"> Ні</label>
+
+        <p>2. Я вважаю себе розумним/розумною.</p>
+        <label><input type="radio" name="q2" value="2"> Так</label>
+        <label><input type="radio" name="q2" value="1"> Частково</label>
+        <label><input type="radio" name="q2" value="0"> Ні</label>
+
+        <p>3. Я не боюся говорити свою думку.</p>
+        <label><input type="radio" name="q3" value="2"> Так</label>
+        <label><input type="radio" name="q3" value="1"> Частково</label>
+        <label><input type="radio" name="q3" value="0"> Ні</label>
+
+        <p>4. Я впевнений(а) у своїх діях.</p>
+        <label><input type="radio" name="q4" value="2"> Так</label>
+        <label><input type="radio" name="q4" value="1"> Частково</label>
+        <label><input type="radio" name="q4" value="0"> Ні</label>
+
+        <br><br>
+        <button type="button" onclick="calculateScore()">Результат</button>
+      </form>
+      <div id="result"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Самооцінка Характеру. Проєкт для навчання.</p>
+  </footer>
+
+  <script>
+    function calculateScore() {
+      const form = document.forms['selfEsteemTest'];
+      let score = 0;
+      for (let i = 1; i <= 4; i++) {
+        const answer = form['q' + i].value;
+        score += parseInt(answer);
+      }
+      const result = document.getElementById('result');
+      if (score >= 7) {
+        result.innerHTML = "<strong>У тебе висока самооцінка.</strong> Ти впевнений(а) у собі, але не забувай бути об’єктивним.";
+      } else if (score >= 4) {
+        result.innerHTML = "<strong>У тебе середня самооцінка.</strong> Є над чим працювати, але це вже гарний рівень.";
+      } else {
+        result.innerHTML = "<strong>У тебе низька самооцінка.</strong> Повір у себе – ти здатен(на) на більше!";
+      }
+    }
+  </script>
+
+</body>
+</html>
